@@ -4,7 +4,7 @@ Advanced Git Lab
 Welcome to the advanced Git Lab! The slides from the presentation can be found
 [here](https://docs.google.com/a/get10up.com/presentation/d/13I0k0GFLuNFitT6tyte94dV_r-SjBk4Y04bO99G8bRM/edit?usp=sharing]).
 The goal of this lab is to you familiar with the concepts from the presentation. From this point forward it is assumed
-that you have a Github account.
+that you have a Github account and some understanding of Unix style commands.
 
 ##### Part 1: Setup
 
@@ -55,7 +55,7 @@ cd vclab
 
 	Cool, huh?
 
-##### Part 4: Cherry Picking
+##### Part 4: Rebasing
 
 Remember, rebasing lets us rewrite history.
 
@@ -72,8 +72,9 @@ to the rescue!
 	```
 	git rebase -i HEAD~2
 	```
-	Note: HEAD~2 could be any type of commit reference. Rebase takes as input the commit right before the one you want
-	rebased. So in this case HEAD~1 and HEAD~0 will get rebased.
+	Note: HEAD~2 could be any type of commit reference. Rebase takes as input the commit you want to rebase
+	onto. So in this case HEAD~1 and HEAD~0 will get rebased onto HEAD~2. HEAD~2 could be my-name-branch~1 
+	if you wanted to rebase master onto my-name-branch~1.
 
 3. You should see something like this:
 	```
@@ -102,7 +103,7 @@ to the rescue!
 	If you write and quit this file without making any changes, the first commit will be applied then the second. This will result in no 
 	changes. We want to squash the second commit and rewrite the first commits message. Let's edit our file like so:
 	```
-	pick dfae8c1 Create test files
+	reword dfae8c1 Create test files
 	squash 575f02a Create another test file
 
 	# Rebase 6b18170..575f02a onto 6b18170
@@ -127,9 +128,11 @@ to the rescue!
 ##### Part 5: Submodules
 
 1. Let's add the 10up repo Publish-To-Twitter as a submodule (purely as an example):
-```
-git checkout my-name-branch
-git submodule add https://github.com/10up/Publish-to-Twitter.git publish-to-twitter
-git commit -m "Add publish-to-twitter submodule"
-git push beanstalk my-name-branch
-```
+	```
+	git checkout my-name-branch
+	git submodule add https://github.com/10up/Publish-to-Twitter.git publish-to-twitter
+	git commit -m "Add publish-to-twitter submodule"
+	git push beanstalk my-name-branch
+	```
+
+	Done!
