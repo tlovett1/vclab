@@ -103,7 +103,7 @@ to the rescue!
 	If you write and quit this file without making any changes, the first commit will be applied then the second. This will result in no 
 	changes. We want to squash the second commit and rewrite the first commits message. Let's edit our file like so:
 	```
-	reword dfae8c1 Create test files
+	reword dfae8c1 Create a test file
 	squash 575f02a Create another test file
 
 	# Rebase 6b18170..575f02a onto 6b18170
@@ -124,6 +124,9 @@ to the rescue!
 	#
 	# Note that empty commits are commented out
 	```
+	Once we've made our edits let write and quit. We will now receive two prompts. The first prompt allows us to reword
+	our first commit. The second prompt will allow us to reword the combined commits in case we want to indicate a
+	squash occurred. We want our commit message to simply by "Create test files".
 
 ##### Part 5: Submodules
 
